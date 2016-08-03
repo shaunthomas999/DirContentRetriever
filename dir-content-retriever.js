@@ -20,22 +20,23 @@ DirContentRetriever.prototype.displayContent = function(target) {
 DirContentRetriever.prototype.contentAggregator = function(target) {
 
   try {
-    let dirContents = fs.readdirSync(target);
+    let stats = fs.statSync(target);
+    if(stats.isDirectory()){
+      this.result.dirnames.push(target);
 
-    for(let dirContent of dirContents){
-      let dirContentAbsolute = path.join(target, dirContent);
-      let stats = fs.statSync(dirContentAbsolute);
-      if(stats.isDirectory()){
-        this.result.dirnames.push(dirContentAbsolute);
-        this.contentAggregator(dirContentAbsolute);
+      // Recrusively check directory contents
+      let dirContents = fs.readdirSync(target);
+      for(let dirContent of dirContents){
+        this.contentAggregator(path.join(target, dirContent));
       }
-      else if(stats.isFile()) {
-        this.result.filenames.push(dirContentAbsolute);
-      }
+    }
+    else if(stats.isFile()) {
+      this.result.filenames.push(target);
     }
   }
   catch(err) {
     console.error(err);
+    this.result = null;
   }
 
 };

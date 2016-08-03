@@ -1,0 +1,25 @@
+{
+  "name": "dir-content-retriever",
+  "version": "1.0.0",
+  "description": "Directory Content Retriever",
+  "main": "dir-content-retriever.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaunthomas999/DirContentRetriever.git"
+  },
+  "author": "Shaun Thomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaunthomas999/DirContentRetriever/issues"
+  },
+  "engines": {
+    "node": ">= 4.4.7"
+  },
+  "homepage": "https://github.com/shaunthomas999/DirContentRetriever"
+}

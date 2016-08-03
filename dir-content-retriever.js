@@ -27,7 +27,7 @@ DirContentRetriever.prototype.contentAggregator = function(target) {
       let stats = fs.statSync(dirContentAbsolute);
       if(stats.isDirectory()){
         this.result.dirnames.push(dirContentAbsolute);
-        this.displayContent(dirContentAbsolute);
+        this.contentAggregator(dirContentAbsolute);
       }
       else if(stats.isFile()) {
         this.result.filenames.push(dirContentAbsolute);

@@ -35,7 +35,6 @@ DirContentRetriever.prototype.contentAggregator = function(target) {
     }
   }
   catch(err) {
-    console.error(err);
     this.result = null;
   }
 

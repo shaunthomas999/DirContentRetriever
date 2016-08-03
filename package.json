@@ -22,7 +22,8 @@
     "node": ">= 4.4.7"
   },
   "homepage": "https://github.com/shaunthomas999/DirContentRetriever",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "nodeunit": "^0.9.1"
   }
 }

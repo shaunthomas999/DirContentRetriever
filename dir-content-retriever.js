@@ -3,8 +3,8 @@
  *
  * Created by shaunthomas on 03/08/16.
  */
-const fs = require('fs');
-const path = require('path');
+var fs = require('fs');
+var path = require('path');
 
 var DirContentRetriever = function() {};
 
@@ -20,13 +20,13 @@ DirContentRetriever.prototype.displayContent = function(target) {
 DirContentRetriever.prototype.contentAggregator = function(target) {
 
   try {
-    let stats = fs.statSync(target);
+    var stats = fs.statSync(target);
     if(stats.isDirectory()){
       this.result.dirnames.push(target);
 
       // Recrusively check directory contents
-      let dirContents = fs.readdirSync(target);
-      for(let dirContent of dirContents){
+      var dirContents = fs.readdirSync(target);
+      for(var dirContent of dirContents){
         this.contentAggregator(path.join(target, dirContent));
       }
     }

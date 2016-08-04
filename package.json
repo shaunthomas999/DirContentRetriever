@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "nodeunit test/tests.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +22,5 @@
     "node": ">= 4.4.7"
   },
   "homepage": "https://github.com/shaunthomas999/DirContentRetriever",
-  "dependencies": {},
-  "devDependencies": {
-    "nodeunit": "^0.9.1"
-  }
+  "dependencies": {}
 }

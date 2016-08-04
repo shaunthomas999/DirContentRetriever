@@ -6,38 +6,39 @@
 var fs = require('fs');
 var path = require('path');
 
-var DirContentRetriever = function() {};
+var result = {};
 
-DirContentRetriever.prototype.result = {};
-DirContentRetriever.prototype.result.filenames = [];
-DirContentRetriever.prototype.result.dirnames = [];
+var displayContent = function(target) {
+  result.filenames = [];
+  result.dirnames = [];
 
-DirContentRetriever.prototype.displayContent = function(target) {
-  this.contentAggregator(target);
-  return this.result;
+  contentAggregator(target);
+
+  return result;
 };
 
-DirContentRetriever.prototype.contentAggregator = function(target) {
+var contentAggregator = function(target) {
 
   try {
     var stats = fs.statSync(target);
-    if(stats.isDirectory()){
-      this.result.dirnames.push(target);
 
-      // Recrusively check directory contents
+    if(stats.isDirectory()){
+      result.dirnames.push(target);
+
+      // Recrusively retrieve directory contents
       var dirContents = fs.readdirSync(target);
       for(var dirContent of dirContents){
-        this.contentAggregator(path.join(target, dirContent));
+        contentAggregator(path.join(target, dirContent));
       }
     }
     else if(stats.isFile()) {
-      this.result.filenames.push(target);
+      result.filenames.push(target);
     }
   }
   catch(err) {
-    this.result = null;
+    result = null;
   }
 
 };
 
-module.exports = new DirContentRetriever();
+exports.displayContent = displayContent;

@@ -4,7 +4,7 @@
 
 ```
 var dirContentRetriever = require('./dir-content-retriever.js');
-var dirContents = dirContentRetriever.displayContent('/home/ubuntu/');
+var dirContents = dirContentRetriever.retrieveContent('/home/ubuntu/');
 ```
 
 ## Unit test

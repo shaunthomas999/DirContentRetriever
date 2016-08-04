@@ -13,7 +13,7 @@ var result;
  * @param target - Target whose content has to be retrieved
  * @returns {}
  */
-var displayContent = function(target) {
+var retrieveContent = function(target) {
   result = {};
   result.filenames = [];
   result.dirnames = [];
@@ -51,4 +51,4 @@ var contentAggregator = function(target) {
 
 };
 
-exports.displayContent = displayContent;
+exports.retrieveContent = retrieveContent;

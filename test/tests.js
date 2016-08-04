@@ -25,7 +25,7 @@ module.exports = {
     expectedResult.dirnames.push(this.path.join(__dirname,'testFolder','foo'));
     expectedResult.dirnames.push(this.path.join(__dirname,'testFolder','foo','bar'));
 
-    var actualResult = this.DirContentRetriever.displayContent(this.path.join(__dirname,'testFolder','foo'));
+    var actualResult = this.DirContentRetriever.retrieveContent(this.path.join(__dirname,'testFolder','foo'));
 
     test.deepEqual(actualResult, expectedResult);
     test.done();
@@ -42,7 +42,8 @@ module.exports = {
     expectedResult.filenames.push(this.path.join(__dirname,'testFolder','foo','bar','bar1.txt'));
     expectedResult.dirnames = [];
 
-    var actualResult = this.DirContentRetriever.displayContent(this.path.join(__dirname,'testFolder','foo','bar','bar1.txt'));
+    var actualResult = this.DirContentRetriever.retrieveContent(
+      this.path.join(__dirname,'testFolder','foo','bar','bar1.txt'));
 
     test.deepEqual(actualResult, expectedResult);
     test.done();
@@ -55,7 +56,8 @@ module.exports = {
   testResultForNonExistingTarget: function (test) {
     var expectedResult = null;
 
-    var actualResult = this.DirContentRetriever.displayContent(this.path.join(__dirname,'testFolder','foo','bar','bay'));
+    var actualResult = this.DirContentRetriever.retrieveContent(
+      this.path.join(__dirname,'testFolder','foo','bar','bay'));
 
     test.deepEqual(actualResult, expectedResult);
     test.done();
@@ -74,8 +76,8 @@ module.exports = {
     expectedResult.dirnames = [];
     expectedResult.dirnames.push(this.path.join(__dirname,'testFolder','foo','bar'));
 
-    var target = ".%test%testFolder%foo%bar%..%bar"
-    var actualResult = this.DirContentRetriever.displayContent(target.replace(/%/g, this.path.sep));
+    var target = ".%test%testFolder%foo%bar%..%bar";
+    var actualResult = this.DirContentRetriever.retrieveContent(target.replace(/%/g, this.path.sep));
 
     test.deepEqual(actualResult, expectedResult);
     test.done();

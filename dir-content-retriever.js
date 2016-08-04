@@ -8,6 +8,11 @@ var path = require('path');
 
 var result = {};
 
+/**
+ * Used to get content of a target path in specific Javascript format
+ * @param target - Target whose content has to be retrieved
+ * @returns {}
+ */
 var displayContent = function(target) {
   result.filenames = [];
   result.dirnames = [];
@@ -17,6 +22,10 @@ var displayContent = function(target) {
   return result;
 };
 
+/**
+ * Aggregate contents of target recrusively
+ * @param target - Target whose content has to be retrieved
+ */
 var contentAggregator = function(target) {
 
   try {

@@ -9,6 +9,10 @@ module.exports = {
     callback();
   },
 
+  /**
+   * Test the result when a directory is given as input
+   * @param test
+   */
   testResultWhenDirectoryIsTarget: function (test) {
 
     var expectedResult = {};
@@ -27,6 +31,10 @@ module.exports = {
     test.done();
   },
 
+  /**
+   * Test the result when a file name is given as input
+   * @param test
+   */
   testResultWhenFileIsTarget: function (test) {
 
     var expectedResult = {};
@@ -40,6 +48,10 @@ module.exports = {
     test.done();
   },
 
+  /**
+   * Test the result when a non-existing path is given as input
+   * @param test
+   */
   testResultForNonExistingTarget: function (test) {
     var expectedResult = null;
 

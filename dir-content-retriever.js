@@ -6,7 +6,7 @@
 var fs = require('fs');
 var path = require('path');
 
-var result = {};
+var result;
 
 /**
  * Used to get content of a target path in specific Javascript format
@@ -14,10 +14,11 @@ var result = {};
  * @returns {}
  */
 var displayContent = function(target) {
+  result = {};
   result.filenames = [];
   result.dirnames = [];
 
-  contentAggregator(target);
+  contentAggregator(path.resolve(target));
 
   return result;
 };

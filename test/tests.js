@@ -59,6 +59,26 @@ module.exports = {
 
     test.deepEqual(actualResult, expectedResult);
     test.done();
+  },
+
+  /**
+   * Test the result when a relative path is given as input
+   * @param test
+   */
+  testResultForRelativePathTarget: function (test) {
+
+    var expectedResult = {};
+    expectedResult.filenames = [];
+    expectedResult.filenames.push(this.path.join(__dirname,'testFolder','foo','bar','bar1.txt'));
+    expectedResult.filenames.push(this.path.join(__dirname,'testFolder','foo','bar','bar2.txt'));
+    expectedResult.dirnames = [];
+    expectedResult.dirnames.push(this.path.join(__dirname,'testFolder','foo','bar'));
+
+    var target = ".%test%testFolder%foo%bar%..%bar"
+    var actualResult = this.DirContentRetriever.displayContent(target.replace(/%/g, this.path.sep));
+
+    test.deepEqual(actualResult, expectedResult);
+    test.done();
   }
 
 };

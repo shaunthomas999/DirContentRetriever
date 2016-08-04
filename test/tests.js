@@ -20,7 +20,6 @@ module.exports = {
     expectedResult.dirnames = [];
     expectedResult.dirnames.push(this.path.join(__dirname,'testFolder','foo'));
     expectedResult.dirnames.push(this.path.join(__dirname,'testFolder','foo','bar'));
-    expectedResult.dirnames.push(this.path.join(__dirname,'testFolder','foo','bar','baz'));
 
     var actualResult = this.DirContentRetriever.displayContent(this.path.join(__dirname,'testFolder','foo'));
 
